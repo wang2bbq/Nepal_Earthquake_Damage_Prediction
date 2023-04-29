@@ -32,7 +32,9 @@ The dataset for my project consists of 260,601 examples in the training set, eac
 
 # Final model
 After training XGBoost with the best parameters on the entire training set, I obtained a micro-averaged F1 score of 75.02, which is slightly lower than the 0.7518 achieved using the validation set after splitting the training set. However, upon closer inspection of the test set, I discovered that there were some previously overlooked details, such as 266 values of 'geo_level_3_id' that were not present in the training set. One solution to this problem is to treat these values equally as an "Unknown" category.
+
 Additionally, I attempted to pre-process the training set using SMOTE, but this actually resulted in a lower score of 0.7492. This may be due to the fact that SMOTE adds noise to the data, which can have a negative impact on model performance.
+
 Based on the analysis of feature importance, I have found that different models tend to focus on different parts of the feature space. Therefore, I believe that combining these models could lead to better performance. Moving forward, I plan to explore the use of more models and consider stacking or ensemble methods, such as mixture of experts, in order to further improve the results.
 
 # Code
