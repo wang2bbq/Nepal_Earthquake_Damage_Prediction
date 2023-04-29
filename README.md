@@ -1,5 +1,5 @@
 # Modeling-Earthquake-Damage
-Based on aspects of building location and construction, my goal is to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.
+Based on aspects of building location and construction, the goal is to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.
 
 # Abstract
 I first conducted exploratory data analysis, which included checking for missing data, duplicated rows, outliers, and class imbalance. I performed winsorization to deal with outliers. For feature engineering, I converted categorical features using one-hot encoding. In correlation analysis, I dropped two features with high correlation to others. I also tried PCA but observed that each principal component had similar variance. I experimented with several models, including random forest, XGBoost, SVM, and so on. I focused on XGBoost and performed parameter tuning to optimize its performance. I also used SMOTE to improve the performance on the minority class. Finally, I achieved a micro averaged F1 score of 0.7502.
