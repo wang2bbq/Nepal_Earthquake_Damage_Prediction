@@ -5,7 +5,7 @@ Based on aspects of building location and construction, the goal is to predict t
 I first conducted exploratory data analysis, which included checking for missing data, duplicated rows, outliers, and class imbalance. I performed winsorization to deal with outliers. For feature engineering, I converted categorical features using one-hot encoding. In correlation analysis, I dropped two features with high correlation to others. I also tried PCA but observed that each principal component had similar variance. I experimented with several models, including random forest, XGBoost, SVM, and so on. I focused on XGBoost and performed parameter tuning to optimize its performance. I also used SMOTE to improve the performance on the minority class. Finally, I achieved a micro averaged F1 score of 0.7502.
 
 # Exploratory data analysis
-The dataset for my project consists of 260,601 examples in the training set, each with 38 features, including 8 categorical features. Additionally, there are 86,868 examples in the test set.
+The dataset for this project consists of 260,601 examples in the training set, each with 38 features, including 8 categorical features. Additionally, there are 86,868 examples in the test set.
 
 - missing values
 - duplicated rows
@@ -14,23 +14,36 @@ The dataset for my project consists of 260,601 examples in the training set, eac
 
 # Feature engineering
 - one-hot encoding
-- correlation analysis
-- PCA
+- correlation analysis and feature selection
+- standardization and PCA
 
 # Model selection
-- random forest with and without compensation for class imbalance
-- L1-penalized XGBoost
-- SVM with Gaussian kernel and one-versus-all classifiers
-- L1-penalized SVM
-- L1-penalized multinomial logistic regression
+- random forest
+- XGBoost
+- LightGBM
+- CatBoost
+- SVM
+- multinomial logistic regression
 
-# Parameter tuning for XGBoost
-- GridSearchCV
-- raw features, standardized features, and normalized features
+# Parameter tuning
+- GridSearchCV and Optuna
+- random forest
+- XGBoost
+- XGBoost + SMOTE
+- LightGBM
+- CatBoost
+- 
 - EarlyStopping
-- SMOTE
 
-# Final model
+# Classifier Comparation
+- feature importance
+- prediction comparation
+
+# Ensemble methods
+- Hard Voting
+- Soft Voting
+
+# Submission
 After training XGBoost with the best parameters on the entire training set, I obtained a micro-averaged F1 score of 75.02, which is slightly lower than the 0.7518 achieved using the validation set after splitting the training set. However, upon closer inspection of the test set, I discovered that there were some previously overlooked details, such as 266 values of 'geo_level_3_id' that were not present in the training set. One solution to this problem is to treat these values equally as an "Unknown" category.
 
 Additionally, I attempted to pre-process the training set using SMOTE, but this actually resulted in a lower score of 0.7492. This may be due to the fact that SMOTE adds noise to the data, which can have a negative impact on model performance.
