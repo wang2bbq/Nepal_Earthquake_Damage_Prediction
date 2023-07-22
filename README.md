@@ -18,22 +18,22 @@ The dataset for this project consists of 260,601 examples in the training set, e
 - standardization and PCA
 
 # Model selection
-- random forest
-- XGBoost
-- LightGBM
-- CatBoost
-- SVM
-- multinomial logistic regression
+- random forest (0.6377)
+- XGBoost (0.7478)
+- LightGBM (0.7427)
+- CatBoost (0.7349)
+- SVM (0.5903)
+- multinomial logistic regression (0.5758)
 
 # Parameter tuning
-- GridSearchCV and Optuna
-- random forest
-- XGBoost
-- XGBoost + SMOTE
-- LightGBM
-- CatBoost
-- 
-- EarlyStopping
+- - Optuna
+- XGBoost 1 (0.7484)
+- XGBoost 2 (0.7480)
+- XGBoost + SMOTE 1 (0.7479)
+- XGBoost + SMOTE 2 (0.7480)
+- XGBoost + SMOTE 3 (0.7481)
+- LightGBM (0.7453)
+- CatBoost (0.7463)
 
 # Classifier Comparation
 - feature importance
